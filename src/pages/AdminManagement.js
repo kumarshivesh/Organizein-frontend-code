@@ -6,8 +6,11 @@ const AdminManagement = () => {
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState('');
 
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  // const apiUrl = 'http://localhost:5000';
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users/users', {
+    axios.get(`${apiUrl}/api/users/users`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Replace with actual token management
       },
@@ -21,7 +24,7 @@ const AdminManagement = () => {
   }, []);
 
   const promoteToAdmin = (userId) => {
-    axios.put('http://localhost:5000/api/users/promote', { userId }, {
+    axios.put('${apiUrl}/api/users/promote', { userId }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Replace with actual token management
       },

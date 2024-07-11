@@ -10,6 +10,9 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  // const apiUrl = 'http://localhost:5000';
+
   const initialValues = {
     email: '',
     password: '',
@@ -21,7 +24,7 @@ const Login = () => {
   });
 
   const onSubmit = (values) => {
-    axios.post('http://localhost:5000/api/users/login', values)
+    axios.post(`${apiUrl}/api/users/login`, values)
       .then(response => {
         login(response.data); // Update the authentication context with user data
         localStorage.setItem('token', response.data.token); // Store token in localStorage

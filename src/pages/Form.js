@@ -8,6 +8,9 @@ const FormPage = () => {
   const { user } = useContext(AuthContext);
   const [message, setMessage] = useState(''); // State to manage success message
 
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  // const apiUrl = 'http://localhost:5000';
+
   const initialValues = {
     title: '',
     description: '',
@@ -19,7 +22,7 @@ const FormPage = () => {
   });
 
   const onSubmit = (values, { resetForm }) => {
-    axios.post('http://localhost:5000/api/forms/submit-form', values, {
+    axios.post(`${apiUrl}/api/forms/submit-form`, values, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },

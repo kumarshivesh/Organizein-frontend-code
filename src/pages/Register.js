@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
   const navigate = useNavigate();
 
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  // const apiUrl = 'http://localhost:5000';
+
   const initialValues = {
     username: '',
     email: '',
@@ -20,7 +23,7 @@ const Register = () => {
   });
 
   const onSubmit = (values) => {
-    axios.post('http://localhost:5000/api/users/register', values)
+    axios.post(`${apiUrl}/api/users/register`, values)
       .then(response => {
         navigate('/login'); // Redirect to the login page
       })

@@ -4,9 +4,12 @@ import axios from 'axios';
 
 const Admin = () => {
   const [forms, setForms] = useState([]);
+  
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    // const apiUrl = 'http://localhost:5000';
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/forms/admin/forms', {
+    axios.get(`${apiUrl}/api/forms/admin/forms`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
