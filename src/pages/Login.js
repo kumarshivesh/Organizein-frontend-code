@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
@@ -11,7 +11,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-  // const apiUrl = 'http://localhost:5000';
 
   const initialValues = {
     email: '',
@@ -53,6 +52,7 @@ const Login = () => {
           <button type="submit">Login</button>
         </Form>
       </Formik>
+      <p>Don't have an account? <Link to="/register">Register</Link></p>
     </div>
   );
 };

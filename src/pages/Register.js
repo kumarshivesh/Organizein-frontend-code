@@ -1,14 +1,14 @@
+// src/pages/Register.js
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
   const navigate = useNavigate();
 
   const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-  // const apiUrl = 'http://localhost:5000';
 
   const initialValues = {
     username: '',
@@ -55,6 +55,7 @@ const Register = () => {
           <button type="submit">Register</button>
         </Form>
       </Formik>
+      <p>Have an account? <Link to="/login">Login</Link></p>
     </div>
   );
 };
