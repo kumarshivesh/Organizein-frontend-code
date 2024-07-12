@@ -41,3 +41,11 @@ To run the application locally, use the following command:
 npm start
 ```
 
+## Frontend Demo
+
+Refer this YouTube video for Frontend demo
+
+[![RESTful API Demo](https://i.ibb.co/xMc5Lw5/organizein-thumbnail.png)](https://youtu.be/ibzs13RuYMQ)
+
+
+
